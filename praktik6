@@ -1,0 +1,35 @@
+import requests
+from bs4 import BeautifulSoup
+
+page = requests.get("https://www.republika.co.id/")
+obj = BeautifulSoup(page.text, "html.parser")
+
+print ("menampilkan objek html")
+print ("====================================")
+print (obj)
+
+print ("\nmenampilkan title browser tanpa tag")
+print ("====================================")
+print (obj.title.text)
+
+print ("\nmMenampilkan Semua teks h2")
+print ("====================================")
+for headline in obj.find_all("h2"):
+    print (headline.text)
+
+print ("\nmMenampilkan Semua teks h2")
+print ("====================================")
+print (obj.find_all("div", class_="bungkus_txt_headline_center"))
+
+print ("\nMenampilkan Semua teks h2")
+print ("====================================")
+for headline in obj.find_all("div", class_="bungkus_txt_headline_center"):
+    print(headline.find("h2").text)
+
+print ("\nMenyimpan headline pada file text")
+print ("====================================")
+f=open("D:\\Muhammad Aziz Taufiqurrahman\\Kuliah Polban\\Semester 2\\Proyek 1 Aplikasi Perkantoran\\headline.text","w")
+for headline in obj.find_all("div", class_="bungkus_txt_headline_center"):
+    f.write(headline.find("h2").text)
+    f.write("\n")
+f.close()
