@@ -1,0 +1,175 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       <div id="dual_x_div" style="width: 900px; height: 500px;"></div>
+
+Source JavaScript :
+import 'bootstrap@4.6.0'
+import $ from 'jquery'
+
+$('button')
+  .html('Click me') // Try edit it...
+  .on('click', () => console.log('Hi friend!'))
+
+console.log('App started')
+google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Film', 'Hours per days'],
+          ['ACTION',      30],
+          ['ADVENTURE',  25],
+          ['ANIMATION', 10],
+          ['BIOGRAPHY', 4], 
+          ['COMEDY', 20], 
+          ['CRIME', 40], 
+          ['DRAMA', 30], 
+          ['FAMILY', 20], 
+          ['FANTASY', 15], 
+          ['HISTORY', 10]
+        ]);
+
+        var options = {
+          title: 'Genre Film'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+        google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Tittle', 'User Review', 'Rating'],
+          ['The Shawshank Redemption (1994)', 2384066, 9.3],
+          ['The Godfather (1972)', 1652239, 9.2],
+          ['The Godfather: Part II (1974)',1149703 , 9.0],
+          ['The Dark Knight (2008)',2347546 , 9.0],
+          ['12 Angry Men (1957)',703914 , 9.0],
+          ['Schindlers List (1993)', 10, 8.9],
+          ['The Lord of the Rings : The Return of the King (2003)',1667810 , 8.9],
+          ['Pulp Fiction (1994)', 1856900,8.9],
+          ['The Good, the Bad and the Ugly (1966)', 698557,8.8 ],
+          [' The Lord of the Rings: The Fellowship of the Ring (2001)',1688281 , 8.8],
+          ['Fight Club (1999)', 1886129, 8.8],
+          ['Forrest Gump (1994)', 1844474,8.8],
+          ['Inception (2010)', 2105835,8.8],
+          ['The Lord of the Rings: The Two Towers (2002)',1508198 ,8.7 ],
+          ['Star Wars: Episode V - The Empire Strikes Back (1980)',1175692 ,8.7 ],
+          ['The Matrix (1999)', 1704973,8.7 ],
+          ['Goodfellas (1990)', 1039343,8.7 ],
+          ['One Flew Over the Cuckoos Nest( 1975)',931076 , 8.7],
+          ['Seven Samurai (1954)',320574 , 8.6],
+          ['Se7en (1995)',1472013 ,8.6 ],
+          ['Life Is Beautiful (1997)',634829 ,8.6 ],
+          ['City of God (2002)',707877,8.6],
+          ['The Silence of the Lambs (1991)',1294088,8.6],
+          ['Its a Wonderful Life (1946)',411543,8.6],
+          ['Saving Private Ryan (1998)',1258255,8.6],
+          ['Star Wars: Episode IV : A New Hope (1977)',1247722,8.6],
+          ['The Green Mile (1999)',1169588, 8.5],
+          ['Spirited Away (2001)',667593,8.5],
+          ['Interstellar (2014)',1550421,8.5],
+          ['Parasite (2019)',598585,8.5],
+          ['Léon: The Professional (1994)',1052965,8.5],
+          ['Hara-Kiri (1962)',44598,8.6],
+          ['The Lion King (1994)',958483,8.5],
+          ['The Usual Suspects (1995)',1004950,8.5],
+          ['The Pianist (2002)',745767,8.5],
+          ['Terminator 2: Judgment Day (1991)',1008279,8.5],
+          ['Back to the Future (1985)',1077808,8.5],
+          ['American History X (1998)',1047259,8.5],
+          ['Modern Times (1936)',222026,8.5],
+          ['Gladiator (2000)',1362168,8.5],
+          ['Psycho (1960)',613837,8.5],
+          ['The Departed (2006)',1209338,8.5],
+          ['City Lights (1931)',170678,8.5],
+          ['Whiplash (2014)',735260,8.5],
+          ['The Intouchables (2011)',775853,8.5],
+          ['Grave of the Fireflies (1988)',241789,8.5],
+          ['The Prestige (2006)',1211459,8.5],
+          ['Once Upon a Time in the West (1968)',307151,8.4],
+          ['Casablanca (1942)',529310,8.4],
+          ['Cinema Paradiso (1988)',235584,8.4],
+          ['Rear Window (1954)',450742,8.4],
+          ['Alien (1979)',800538,8.4],
+          ['Apocalypse Now (1979)',615775,8.4],
+          ['Memento (2000)',1141738,8.4],
+          ['The Great Dictator (1940)',206353,8.4],
+          ['Indiana Jones and the Raiders of the Lost Ark (1981)',895131,8.4],
+          ['Django Unchained (2012)',1384141,8.4],
+          ['The Lives of Others (2006)',364441,8.4],
+          ['Paths of Glory (1957)',181466,8.4],
+          ['WALL·E (2008)',1016002,8.4],
+          ['Hamilton (2020)',63334,8.4],
+          ['Joker (2019)',989266,8.4],
+          ['The Shining (1980)',914386,8.4],
+          ['Avengers: Infinity War (2018)',870901,8.4],
+          ['Sunset Blvd. (1950)',204864,8.4],
+          ['Witness for the Prosecution (1957)',111481,8.4],
+          ['Spider-Man: Into the Spider-Verse (2018)',395953,8.3],
+          ['Oldboy (2003)',525049,8.3],
+          ['Princess Mononoke (1997)',351175,8.3],
+          ['Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964)',456361,8.4],
+          ['The Dark Knight Rises (2012)',1540441,8.3],
+          ['Once Upon a Time in America (1984)',317240,8.3],
+          ['Your Name. (2016)',206452,8.3],
+          ['Coco (2017)',402239,8.4],
+          ['Aliens (1986)',661260,8.3],
+          ['Avengers: Endgame (2019)',864634,8.4],
+          ['Capernaum (2018)',67899,8.3],
+          ['American Beauty (1999)',1082556,8.3],
+          ['Braveheart (1995)',970870,8.3],
+          ['High and Low (1963)',36324,8.3],
+          ['Toy Story (1995)',901943,8.3],
+          ['Das Boot (1981)',235061,8.3],
+          ['3 Idiots (2009)',351810,8.3],
+          ['Amadeus (1984)',374085,8.3],
+          ['Inglourious Basterds (2009)',1293018,8.3],
+          ['Good Will Hunting (1997)',876876,8.3],
+          ['Star Wars: Episode VI - Return of the Jedi (1983)',963609,8.3],
+          ['Like Stars on Earth (2007)',173299,8.3],
+          ['Reservoir Dogs (1992)',933019,8.3],
+          ['2001: A Space Odyssey (1968)',612827,8.3],
+          ['Requiem for a Dream (2000)',778191,8.3],
+          ['The Hunt (2012)',290676,8.3],
+          ['Vertigo (1958)',370319,8.3],
+          ['M (1931)',145968,8.3],
+          ['Eternal Sunshine of the Spotless Mind (2004)',924628,8.3],
+          ['Citizen Kane (1941)',411152,8.3],
+          ['Dangal (2016)',161564,8.3],
+          ['Come and See (1985)',62141,8.2],
+          ['The Kid (1921)',115907,8.2],
+          ['Singingin the Rain (1952)',222514,8.2],
+          
+          
+        ]);
+
+        var options = {
+          width: 800,
+          height:2000,
+          chart: {
+            title: 'Top Rated Movies',
+            subtitle: 'by IMDb'
+          },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          series: {
+            0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
+            1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
+          },
+          axes: {
+            x: {
+              distance: {label: 'parsecs'}, // Bottom x-axis.
+              brightness: {side: 'top', label: 'Ratio'} // Top x-axis.
+            }
+          }
+        };
+
+      var chart = new google.charts.Bar(document.getElementById('dual_x_div'));
+      chart.draw(data, options);
+    };
